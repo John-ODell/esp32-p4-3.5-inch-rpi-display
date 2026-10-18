@@ -139,9 +139,12 @@ Plain `idf.py build` targets chip revision v3.x.
 
 ## Status
 
-- The rev1 image is tested on hardware (2026-10-17): the speed test, the first-boot calibration
-  prompt, loading a saved calibration, and the coefficient printout.
+- The rev1 build was tested on hardware on 2026-10-17: the speed test, the first-boot calibration
+  prompt, loading a saved calibration, and the coefficient printout. The released image adds one
+  bounds check on top of that build and has not been re-flashed yet.
 - The rev3 image is built from the same source but not yet tested on a v3 chip.
+- Both are tracked in [issue #3](https://github.com/John-ODell/esp32-p4-3.5-inch-rpi-display/issues/3).
+  Reports from other boards are welcome there.
 
 ## License
 
