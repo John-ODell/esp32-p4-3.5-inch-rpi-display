@@ -55,7 +55,7 @@ the calibration is affine: [docs/PORTING.md](docs/PORTING.md).
    esptool.py --chip esp32p4 -p PORT flash_id
    ```
    The output contains `Chip is ESP32-P4 (revision vX.Y)`.
-4. Download the matching image from the [latest release](https://github.com/John-ODell/esp32-p4-3.5-inch-rpi-display/releases/latest). Use `-rev1` for revision v0.x or
+4. Download the matching image from the [latest release](https://github.com/John-ODell/esp32-p4-3.5-inch-rpi-display/releases/latest). Use `-rev1` for revision
    v1.x (early kits) and `-rev3` for v3.1 or later. Then flash it:
    ```bash
    esptool.py --chip esp32p4 -p PORT -b 921600 write_flash 0x0 p4-rpi-display-1.0.0-rev1.bin

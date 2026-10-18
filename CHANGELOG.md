@@ -1,6 +1,6 @@
 # Unreleased
 - Releases carry `workbench-manifest.json` for web flashers, written by `tools/build_release.sh`.
-- The rev3 image needs chip revision v3.1 or later (ESP-IDF 5.5's default minimum), not any v3.x.
+- Docs: the rev1 image boots v1.x chips (not v0.x) and the rev3 image needs v3.1 or later, as the builds set.
 
 # 1.0.0 (2026-10-17)
 - First release. MPI3501 driver for ESP-IDF 5.5 on the ESP32-P4, with a 5-point touch calibrator
