@@ -36,6 +36,7 @@ def main():
             "chipRevisionMax": sdkconfig_int(cfg, "CONFIG_ESP_REV_MAX_FULL"),
         })
     manifest = {
+        "manifestVersion": 1,             # bump if a field changes meaning
         "name": "3.5inch RPi Display tester",
         "version": ver,
         "chip": "ESP32-P4",
