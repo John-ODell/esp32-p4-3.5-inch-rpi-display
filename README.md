@@ -1,16 +1,45 @@
-# ESP32-P4 + 3.5inch RPi Display (ILI9486, XPT2046 touch): driver and touch calibrator
+# ESP32-P4 + 3.5inch RPi Display (ILI9486, XPT2046 touch)
 
-Free, MIT-licensed ESP-IDF driver and a ready-to-flash test tool for the common
-**3.5inch RPi Display** made for the Raspberry Pi: lcdwiki **MPI3501**, 480x320 **ILI9486** behind a
-16-bit shift register, **XPT2046** resistive touch. The same design is often listed as "3.5 inch Raspberry Pi LCD (A)",
-"Waveshare-style 3.5 inch RPi LCD" and "goodtft LCD35". It runs on the
-**Waveshare ESP32-P4-Module-DEV-KIT**, where the panel plugs straight onto the 40-pin header with no wiring.
+**The cheap 3.5" touchscreen made for the Raspberry Pi, running on an ESP32-P4. No Pi, no Linux.**
 
-**How the port works**, including pin translation, the 16-bit bus quirk, the init sequence and
-why the calibration is affine: [docs/PORTING.md](docs/PORTING.md).
+<p align="center">
+  <img src="docs/images/esp32-p4-module-dev-kit.jpg" alt="Waveshare ESP32-P4-Module-DEV-KIT" height="122">
+  &nbsp;&nbsp;+&nbsp;&nbsp;
+  <img src="docs/images/3.5inch-rpi-display.jpg" alt="3.5inch RPi Display, front and back, with stylus" height="280">
+</p>
 
-This panel is sold for the Raspberry Pi and normally needs the Linux fbtft overlay. Here it runs
-from bare ESP-IDF at **10.8 full frames per second**, with a 5-point touch calibration saved to flash.
+## The idea
+
+The 3.5inch RPi Display is one of the most common Raspberry Pi add-ons. It is a 480x320 colour
+screen with resistive touch and a stylus, and it sits right on top of the Pi's 40-pin header. On a
+Pi it only works through a Linux kernel overlay and the seller's install script.
+
+The **Waveshare ESP32-P4-Module-DEV-KIT** copies the Raspberry Pi's 40-pin header, with power and
+ground in the same places. So the same screen plugs straight onto it, with no adapter or wires.
+
+This project makes the screen work there, on a microcontroller, with nothing in between:
+
+- A small ESP-IDF driver talks to the screen directly. It draws its first frame 0.8 s after reset
+  and redraws the full screen about 11 times a second.
+- A touch calibrator: tap five crosses once, and touches land where your finger is from then on.
+- A ready-to-flash test tool, so you can check your screen in a minute without installing anything.
+
+It suits dashboards, gauges, control panels, radio displays or anything else where an ESP32 needs
+a touchscreen, and maybe you already have this one from an old Pi project. The SDR receiver it was
+built for shows a live spectrum and waterfall on it.
+
+### Is this my screen?
+
+Look at the back of the board. It should say **3.5inch RPi Display**, 480x320, XPT2046 touch
+controller, and carry a row of **four small logic chips**, as in the photo above. Those chips form
+the 16-bit interface this driver speaks. lcdwiki calls it the **MPI3501**. The same design is often
+listed as "3.5 inch Raspberry Pi LCD (A)", "Waveshare-style 3.5 inch RPi LCD" or "goodtft LCD35".
+
+3.5" Pi screens without those chips, such as plain-SPI ST7796 or ILI9488 boards, use a different
+protocol. This driver won't run them as it is.
+
+**How the port works**, including pin translation, the 16-bit bus quirk, the init sequence and why
+the calibration is affine: [docs/PORTING.md](docs/PORTING.md).
 
 ## Flash the prebuilt tool (no toolchain needed)
 
@@ -146,6 +175,11 @@ Plain `idf.py build` targets chip revision v3.x.
 - Both are tracked in [issue #3](https://github.com/John-ODell/esp32-p4-3.5-inch-rpi-display/issues/3).
   Reports from other boards are welcome there.
 
-## License
+## License and credits
 
-MIT, see `LICENSE`. Third-party notes are in `THIRD_PARTY.md`.
+- Code: MIT, see `LICENSE`. Free to use, change and ship, including in commercial products.
+- The font and the origin of the init values are listed in `THIRD_PARTY.md`.
+- Photos: [ESP32-P4-Module-DEV-KIT](https://www.waveshare.com/esp32-p4-module-dev-kit.htm) by
+  Waveshare, and [3.5inch RPi Display](https://jence.com/index.php?route=product/product&product_id=733)
+  from Jence. They are the sellers' product photos, shown to identify the hardware. They belong to
+  their owners and are not covered by the MIT license.
