@@ -27,7 +27,7 @@ int rpi_lcd_text(int x, int y, const char *s, uint16_t fg, uint16_t bg, int scal
                 *o++ = (bits & (0x80 >> (px / scale))) ? fg : bg;
         }
     }
-    rpi_lcd_blit(x, y, w, ch, s_line);
+    rpi_lcd_blit(x, y, w, ch, s_line);   /* in range: checked above */
     return x + w;
 }
 

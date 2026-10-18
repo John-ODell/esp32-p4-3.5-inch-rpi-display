@@ -141,6 +141,9 @@ esp_err_t rpi_lcd_fill_rect(int x, int y, int w, int h, uint16_t c) {
 
 esp_err_t rpi_lcd_blit(int x, int y, int w, int h, const uint16_t *pix) {
     if (w <= 0 || h <= 0) return ESP_OK;
+    /* The ILI9486 wraps writes that run past the window, scrambling the screen, so refuse
+     * rectangles that leave the panel. (Clipping would need a source stride.) */
+    if (x < 0 || y < 0 || x + w > LCD_W || y + h > LCD_H) return ESP_ERR_INVALID_ARG;
     ESP_RETURN_ON_ERROR(rpi_lcd_set_window(x, y, x + w - 1, y + h - 1), TAG, "win");
     size_t npix = (size_t)w * h, done = 0;
     while (done < npix) {

@@ -13,12 +13,10 @@ static uint16_t rd12(uint8_t ctrl) {
     if (spi_device_polling_transmit(s_dev, &t) != ESP_OK) return 0;
     return ((rx[1] << 8) | rx[2]) >> 3;            /* 12 bits, MSB first after the busy bit */
 }
-static int cmp16(const void *a, const void *b) { return (int)*(const uint16_t *)a - (int)*(const uint16_t *)b; }
 static uint16_t median5(uint8_t ctrl) {
     uint16_t v[5]; for (int i = 0; i < 5; i++) v[i] = rd12(ctrl);
     /* tiny insertion sort */
     for (int i = 1; i < 5; i++) { uint16_t k = v[i]; int j = i - 1; while (j >= 0 && v[j] > k) { v[j+1] = v[j]; j--; } v[j+1] = k; }
-    (void)cmp16;
     return v[2];
 }
 
