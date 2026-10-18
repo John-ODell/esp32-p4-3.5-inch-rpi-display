@@ -1,0 +1,7 @@
+version: "1.0.0"
+description: "lcdwiki MPI3501 3.5in RPi display (ILI9486 behind a 16-bit shift register + XPT2046 touch) for ESP-IDF, with 5-point touch calibration stored in NVS"
+license: "MIT"
+targets:
+  - esp32p4
+dependencies:
+  idf: ">=5.3"
