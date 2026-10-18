@@ -2,11 +2,16 @@
 
 **The cheap 3.5" touchscreen made for the Raspberry Pi, running on an ESP32-P4. No Pi, no Linux.**
 
-<p align="center">
-  <img src="docs/images/esp32-p4-module-dev-kit.jpg" alt="Waveshare ESP32-P4-Module-DEV-KIT" height="122" align="middle">
-  &nbsp;&nbsp;+&nbsp;&nbsp;
-  <img src="docs/images/3.5inch-rpi-display.jpg" alt="3.5inch RPi Display, front and back, with stylus" height="280" align="middle">
-</p>
+<table align="center">
+  <tr>
+    <td align="center"><img src="docs/images/esp32-p4-module-dev-kit.jpg" alt="Waveshare ESP32-P4-Module-DEV-KIT" height="122"></td>
+    <td align="center"><img src="docs/images/3.5inch-rpi-display.jpg" alt="3.5inch RPi Display, front and back, with stylus" height="280"></td>
+  </tr>
+  <tr>
+    <td align="center">Waveshare ESP32-P4-Module-DEV-KIT</td>
+    <td align="center">3.5inch RPi Display (MPI3501)</td>
+  </tr>
+</table>
 
 ## The idea
 
