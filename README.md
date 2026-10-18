@@ -55,15 +55,17 @@ the calibration is affine: [docs/PORTING.md](docs/PORTING.md).
    esptool.py --chip esp32p4 -p PORT flash_id
    ```
    The output contains `Chip is ESP32-P4 (revision vX.Y)`.
-4. Download the matching image from the [latest release](https://github.com/John-ODell/esp32-p4-3.5-inch-rpi-display/releases/latest). Use `-rev1` for revision v0.x or
-   v1.x (early kits) and `-rev3` for v3.x. Then flash it:
+4. Download the matching image from the [latest release](https://github.com/John-ODell/esp32-p4-3.5-inch-rpi-display/releases/latest). Use `-rev1` for revision
+   v1.x (early kits) and `-rev3` for v3.1 or later. Then flash it:
    ```bash
    esptool.py --chip esp32p4 -p PORT -b 921600 write_flash 0x0 p4-rpi-display-1.0.0-rev1.bin
    ```
    `PORT` is something like `/dev/cu.usbmodem…` on macOS, `/dev/ttyACM0` on Linux, or `COM5` on Windows.
    Flashing the whole image clears any calibration saved earlier.
 
-Check downloads against `SHA256SUMS` on the release page.
+Check downloads against `SHA256SUMS` on the release page. Web flashers can read
+`workbench-manifest.json` from the same page: it lists each image's URL, flash address, size,
+SHA-256 and the chip revisions it boots on.
 
 ## What the tool does
 

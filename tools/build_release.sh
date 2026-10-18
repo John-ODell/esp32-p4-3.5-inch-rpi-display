@@ -1,5 +1,6 @@
 #!/bin/sh
-# Build both chip-revision variants and single-file flash images into dist/.
+# Build both chip-revision variants and single-file flash images into dist/, plus
+# SHA256SUMS and workbench-manifest.json (for web flashers).
 # Needs an exported ESP-IDF 5.5 environment (". $IDF_PATH/export.sh").
 set -e
 cd "$(dirname "$0")/.."
@@ -14,3 +15,4 @@ for REV in rev1 rev3; do
     echo "$OUT  $(wc -c < $OUT | tr -d ' ') bytes"
 done
 (cd dist && shasum -a 256 p4-rpi-display-$VER-*.bin > SHA256SUMS)
+python3 -I tools/make_manifest.py "$VER" rev1 rev3
