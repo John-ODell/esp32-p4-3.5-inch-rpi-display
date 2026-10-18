@@ -30,8 +30,12 @@ This project makes the screen work there, on a microcontroller, with nothing in 
 - A ready-to-flash test tool, so you can check your screen in a minute without installing anything.
 
 It suits dashboards, gauges, control panels, radio displays or anything else where an ESP32 needs
-a touchscreen, and maybe you already have this one from an old Pi project. The SDR receiver it was
-built for shows a live spectrum and waterfall on it.
+a touchscreen, and maybe you already have this one from an old Pi project.
+
+> **Looking for the radio?** [P4 SDR](https://github.com/John-ODell/esp32-p4-rtl-sdr) is the
+> receiver this driver was built for. It runs an RTL-SDR Blog V4 spectrum and waterfall, ADS-B
+> aircraft list and map, and Wi-Fi and BLE scanners on this same kit and screen. This repo is
+> just the screen: the driver and a flash-and-test tool, MIT licensed.
 
 ### Is this my screen?
 
