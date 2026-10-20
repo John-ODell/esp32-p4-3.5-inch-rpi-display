@@ -73,6 +73,22 @@ SHA-256 and the chip revisions it boots on.
 
 ## What the tool does
 
+<table align="center">
+  <tr>
+    <td align="center"><img src="docs/images/tool-colour-bars.png" alt="Colour bars with the measured frame time and the hold-to-recalibrate prompt" width="260"></td>
+    <td align="center"><img src="docs/images/tool-calibration.png" alt="Touch calibration screen, two crosses done in green, the third in white" width="260"></td>
+    <td align="center"><img src="docs/images/tool-touch-tester.png" alt="Touch tester with grid, grey check crosses, a drawn line and the CLEAR, RECALIBRATE and COLOURS buttons" width="260"></td>
+  </tr>
+  <tr>
+    <td align="center">Colour bars</td>
+    <td align="center">Touch calibration</td>
+    <td align="center">Touch tester</td>
+  </tr>
+</table>
+
+These are renders of the tool's own drawing code at the panel's 480x320, shown at 2x. The line on
+the tester was drawn for the picture.
+
 1. **Speed test.** It fills the screen red, green and blue and times each fill, about 93 ms per frame.
 2. **Colour bars** with the measured frame rate. Hold the screen now to force a new calibration.
 3. **Touch calibration** runs on first boot. Tap the centre of five crosses: four corners, then the
@@ -193,4 +209,5 @@ Plain `idf.py build` targets chip revision v3.x.
 - Photos: [ESP32-P4-Module-DEV-KIT](https://www.waveshare.com/esp32-p4-module-dev-kit.htm) by
   Waveshare, and [3.5inch RPi Display](https://jence.com/index.php?route=product/product&product_id=733)
   from Jence. They are the sellers' product photos, shown to identify the hardware. They belong to
-  their owners and are not covered by the MIT license.
+  their owners and are not covered by the MIT license. The tool screenshots are this project's own
+  and are MIT.

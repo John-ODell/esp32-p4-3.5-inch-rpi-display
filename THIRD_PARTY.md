@@ -9,4 +9,5 @@
 - `docs/images/esp32-p4-module-dev-kit.jpg`: product photo from Waveshare's
   ESP32-P4-Module-DEV-KIT page. `docs/images/3.5inch-rpi-display.jpg`: product photo from Jence's
   3.5inch RPi Display page. Both are used only to identify the hardware. They are not covered by
-  this repository's MIT license.
+  this repository's MIT license. The `tool-*.png` screenshots are renders of this project's own
+  drawing code and are covered by it.
