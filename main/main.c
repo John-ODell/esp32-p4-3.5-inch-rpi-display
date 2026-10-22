@@ -1,4 +1,4 @@
-/* MPI3501 3.5" RPi display on the ESP32-P4: speed test, touch calibrator, touch tester.
+/* 3.5" RPi display (MHS-3.5inch Display-IPS) on the ESP32-P4: speed test, touch calibrator, touch tester.
  *
  *  1. Red, green, blue full-screen fills, timed (shown on screen and on serial).
  *  2. Colour bars for 2 s. Hold the screen now to force a new calibration.
@@ -90,7 +90,7 @@ static void calibrate(bool forced)
         ESP_LOGI(TAG, "%s", forced ? "calibration requested" : "no saved calibration, calibrating");
         ESP_ERROR_CHECK(touch_cal_run(&s_cal, &err));
     }
-    printf("\n/* MPI3501 touch calibration, worst point %.1f px. Paste into your code if you\n"
+    printf("\n/* 3.5in RPi display touch calibration, worst point %.1f px. Paste into your code if you\n"
            " * want to skip calibration: */\n"
            "touch_cal_t cal = { %.6ff, %.6ff, %.3ff, %.6ff, %.6ff, %.3ff };\n\n",
            err, s_cal.a, s_cal.b, s_cal.c, s_cal.d, s_cal.e, s_cal.f);

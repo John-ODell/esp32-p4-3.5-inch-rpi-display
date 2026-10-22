@@ -41,7 +41,7 @@ def main():
         "version": ver,
         "chip": "ESP32-P4",
         "board": "Waveshare ESP32-P4-Module-DEV-KIT",
-        "display": "MPI3501 3.5inch RPi Display (ILI9486 + XPT2046)",
+        "display": "MHS-3.5inch Display-IPS, 3.5in RPi display (ILI9486 + XPT2046)",
         "description": "Panel speed test, colour bars, 5-point touch calibration and a touch tester.",
         "home": f"https://github.com/{REPO}",
         "notes": [

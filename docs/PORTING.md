@@ -1,8 +1,9 @@
 # Porting the 3.5" Raspberry Pi display to the ESP32-P4
 
-How the lcdwiki **MPI3501** "3.5inch RPi Display" (ILI9486 + XPT2046), sold for the
-Raspberry Pi, was made to work on the **Waveshare ESP32-P4-Module-DEV-KIT** with plain ESP-IDF.
-It also explains the parts that trip people up, so you can port it to other boards.
+How the 3.5" Raspberry Pi display (ILI9486 + XPT2046) was made to work on the **Waveshare
+ESP32-P4-Module-DEV-KIT** with plain ESP-IDF. It was tested on the **MHS-3.5inch Display-IPS**,
+which speaks the same protocol as the lcdwiki **MPI3501** "3.5inch RPi Display". It also explains
+the parts that trip people up, so you can port it to other boards.
 
 ## 1. The two boards
 
@@ -52,9 +53,10 @@ dc-gpios = <GPIO24>   reset-gpios = <GPIO25>
 
 `regwidth = 16` means every register write is a 16-bit word. TFT_eSPI's documentation describes
 this board family as the "Waveshare design": a 16-bit serial interface built from 74HC04,
-74HC4040 and two 74HC4094 shift registers in front of the ILI9486's parallel bus. There is no
-public schematic for the MPI3501, so the exact chips are inferred, not confirmed. The behaviour is
-confirmed on hardware.
+74HC4040 and two 74HC4094 shift registers in front of the ILI9486's parallel bus, as on the
+MPI3501. The MHS-3.5inch Display-IPS this was tested on does the same job with one larger chip.
+Neither board has a public schematic, so the parts are inferred, not confirmed. The behaviour is
+confirmed on the MHS-3.5 board.
 
 What that means in code:
 
@@ -148,7 +150,7 @@ changing it.
 ## 8. Porting to another ESP32 board
 
 1. Wire the eight signals to any free GPIOs, and power the panel with 3V3, 5V and GND.
-2. Set the pins in `idf.py menuconfig`, under **MPI3501 3.5in RPi display**.
+2. Set the pins in `idf.py menuconfig`, under **3.5in RPi display, 16-bit SPI**.
 3. Pick the SPI clock. Most ESP32 SPI peripherals divide 80 MHz, so expect 26.67 MHz for a
    32 MHz request. Use 16 MHz on long jumper wires.
 4. Keep internal DMA-capable RAM free for the 15 KB pixel strip.

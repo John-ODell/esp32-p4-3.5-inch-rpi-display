@@ -1,5 +1,5 @@
 version: "1.0.0"
-description: "lcdwiki MPI3501 3.5in RPi display (ILI9486 behind a 16-bit shift register + XPT2046 touch) for ESP-IDF, with 5-point touch calibration stored in NVS"
+description: "3.5in Raspberry Pi display with 16-bit SPI (ILI9486 + XPT2046 touch; tested on the MHS-3.5inch Display-IPS, same protocol as the lcdwiki MPI3501) for ESP-IDF, with 5-point touch calibration stored in NVS"
 license: "MIT"
 targets:
   - esp32p4
