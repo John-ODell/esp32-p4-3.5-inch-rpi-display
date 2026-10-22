@@ -5,11 +5,11 @@
 <table align="center">
   <tr>
     <td align="center"><img src="docs/images/esp32-p4-module-dev-kit.jpg" alt="Waveshare ESP32-P4-Module-DEV-KIT" height="122"></td>
-    <td align="center"><img src="docs/images/3.5inch-rpi-display.jpg" alt="3.5inch RPi Display, front and back, with stylus" height="280"></td>
+    <td align="center"><img src="docs/images/mhs-3.5inch-display-ips.jpg" alt="Back of the MHS-3.5inch Display-IPS: one square chip, the XPT2046 touch controller and the 40-pin socket" height="280"></td>
   </tr>
   <tr>
     <td align="center">Waveshare ESP32-P4-Module-DEV-KIT</td>
-    <td align="center">3.5inch RPi Display (MPI3501)</td>
+    <td align="center">MHS-3.5inch Display-IPS (the tested screen)</td>
   </tr>
 </table>
 
@@ -39,13 +39,19 @@ a touchscreen, and maybe you already have this one from an old Pi project.
 
 ### Is this my screen?
 
-Look at the back of the board. It should say **3.5inch RPi Display**, 480x320, XPT2046 touch
-controller, and carry a row of **four small logic chips**, as in the photo above. Those chips form
-the 16-bit interface this driver speaks. lcdwiki calls it the **MPI3501**. The same design is often
-listed as "3.5 inch Raspberry Pi LCD (A)", "Waveshare-style 3.5 inch RPi LCD" or "goodtft LCD35".
+This driver was developed and tested on the **MHS-3.5inch Display-IPS**, shown above. The back
+says **MHS-3.5inch Display-IPS**, "For RaspberryPi, SPI 125MHz Support, 480X320 Pixels". It
+carries one large square chip, the small XPT2046 touch controller and a two-pin fan header. It
+takes the ILI9486 commands over the 16-bit-over-SPI protocol this driver speaks.
 
-3.5" Pi screens without those chips, such as plain-SPI ST7796 or ILI9488 boards, use a different
-protocol. This driver won't run them as it is.
+The older **3.5inch RPi Display**, which lcdwiki calls the **MPI3501**, does the same job with a
+row of four small logic chips on the back. It's also sold as "3.5 inch Raspberry Pi LCD (A)",
+"Waveshare-style 3.5 inch RPi LCD" or "goodtft LCD35". It uses the same 16-bit protocol, so it
+should work too, but it hasn't been tested yet. If you try one, an issue saying how it went is
+welcome.
+
+3.5" Pi screens that take plain SPI, such as ST7796 or ILI9488 boards, use a different protocol.
+This driver won't run them as it is.
 
 **How the port works**, including pin translation, the 16-bit bus quirk, the init sequence and why
 the calibration is affine: [docs/PORTING.md](docs/PORTING.md).
@@ -206,8 +212,7 @@ Plain `idf.py build` targets chip revision v3.x.
 
 - Code: MIT, see `LICENSE`. Free to use, change and ship, including in commercial products.
 - The font and the origin of the init values are listed in `THIRD_PARTY.md`.
-- Photos: [ESP32-P4-Module-DEV-KIT](https://www.waveshare.com/esp32-p4-module-dev-kit.htm) by
-  Waveshare, and [3.5inch RPi Display](https://jence.com/index.php?route=product/product&product_id=733)
-  from Jence. They are the sellers' product photos, shown to identify the hardware. They belong to
-  their owners and are not covered by the MIT license. The tool screenshots are this project's own
-  and are MIT.
+- Photos: the [ESP32-P4-Module-DEV-KIT](https://www.waveshare.com/esp32-p4-module-dev-kit.htm)
+  picture is Waveshare's product photo, shown to identify the hardware. It belongs to Waveshare
+  and is not covered by the MIT license. The MHS-3.5inch Display-IPS photo is the author's own,
+  and the tool screenshots are this project's own and are MIT.
