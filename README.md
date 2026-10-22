@@ -143,7 +143,7 @@ if (xpt2046_read_raw(&rx, &ry, &rz)) touch_cal_map(&cal, rx, ry, &x, &y);
 | `xpt2046_pressed`, `xpt2046_read_raw` | touch IRQ state; median-of-5 raw 12-bit readings |
 | `touch_cal_run/load/save/map` | 5-point affine least-squares calibration, which handles swapped or mirrored axes |
 
-`idf.py menuconfig`, under **MPI3501 3.5in RPi display**, sets:
+`idf.py menuconfig`, under **3.5in RPi display, 16-bit SPI**, sets:
 
 - every GPIO, with defaults for direct plug-in on the P4 kit
 - the SPI clock (32 MHz requested, 26.67 MHz delivered on the P4)
